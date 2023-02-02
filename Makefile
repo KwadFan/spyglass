@@ -11,7 +11,6 @@ install: ## Install Spyglass as service
 
 update: ## Update Spyglass (via git Repository)
 	@git fetch && git pull
-	@printf "\nUpdate successful ...\n"
 
 
 
