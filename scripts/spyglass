@@ -61,7 +61,7 @@ print_config() {
     local prefix
     prefix="\t\t"
     printf "INFO: Print Configfile: '%s'\n" "${SPYGLASS_CFG}"
-    (sed '/^#.*/d;/./,$!d' | cut -d'#' -f1) < "${SPYGLASS_CFG}" | \
+    (sed '/^#.*/d;/./,$!d;/^$/d' | cut -d'#' -f1) < "${SPYGLASS_CFG}" | \
     while read -r line; do
         printf "%b%s\n" "${prefix}" "${line}"
     done
