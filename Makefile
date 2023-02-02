@@ -4,7 +4,7 @@
 ## Based on https://www.freecodecamp.org/news/self-documenting-makefile/
 
 
-.PHONY: help install update
+.PHONY: help install uninstall update
 
 all:
 	$(MAKE) help
@@ -12,6 +12,8 @@ all:
 install: ## Install Spyglass as service
 	@echo "On ToDo List :)"
 
+uninstall: ## Uninstall Spyglass
+	@echo "On ToDo List :)"
 
 update: ## Update Spyglass (via git Repository)
 	@git fetch && git pull
