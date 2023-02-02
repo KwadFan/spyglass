@@ -57,7 +57,7 @@ get_config() {
     fi
 }
 
-print_cfg() {
+print_config() {
     local prefix
     prefix="\t\t"
     log_msg "INFO: Print Configfile: '${SPYGLASS_CFG}'"
