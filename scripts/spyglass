@@ -33,7 +33,7 @@ check_py_version() {
     if [[ -n "${version}" ]] && [[ "${version}" = "3" ]]; then
         printf "INFO: Python interpreter Version %s found ... [OK]\n" "$("${PY_BIN}" -V)"
     elif [[ -n "${version}" ]] && [[ "${version}" = "2" ]]; then
-        printf "ERROR: Python interpreter minimum Version 3 is required! [EXITING]\n"
+        printf "ERROR: Python interpreter Version 3 is required! [EXITING]\n"
         exit 1
     fi
 }
