@@ -16,12 +16,6 @@ set -Eeou pipefail
 PY_BIN="$(command -v python)"
 SPYGLASS_CFG="${HOME}/printer_data/config/spyglass.conf"
 
-### Debugging
-if [[ "${DEBUG_OUTPUT}" = "1" ]]; then
-    set -x
-fi
-
-
 ### Helper Messages
 debug_msg() {
     printf "DEBUG: %s\n" "${1}"
@@ -84,7 +78,7 @@ while getopts ":vhc:d" arg; do
             SPYGLASS_CFG="${OPTARG}"
         ;;
         d )
-            DEBUG_OUTPUT=1
+            set -x
         ;;
         \?)
             wrong_args_msg
