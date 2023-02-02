@@ -74,7 +74,18 @@ print_config() {
 }
 
 run_spyglass() {
-    "${PY_BIN}"
+    local bind_adress
+
+    "${PY_BIN}" "$(dirname "${BASE_SPY_PATH}")/run.py" \
+    --bindaddress "${bind_adress}" \
+    --port "${HTTP_PORT:-8080}" \
+    --resolution "${RESOLUTION:-640x480}" \
+    --fps "${FPS:-15}" \
+    --stream_url "${STREAM_URL:-\/stream}" \
+    --snapshot_url "${SNAPSHOT_URL:-\/snapshot}" \
+    --autofocus "${AUTO_FOCUS:-continuous}" \
+    --lensposition "${FOCAL_DIST:-0.0}" \
+    --autofocusspeed "${AF_SPEED:-normal}"
 }
 
 #### MAIN
@@ -106,9 +117,7 @@ done
 
 check_py_version
 get_config
-
-debug_msg "${BASE_SPY_PATH}"
-debug_msg "$(dirname "${BASE_SPY_PATH}")"
+run_spyglass
 
 ### Loop to keep running
 while true; do
