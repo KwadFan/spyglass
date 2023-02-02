@@ -60,6 +60,9 @@ print_config() {
     done
 }
 
+run_spyglass() {
+    "${PY_BIN}"
+}
 
 #### MAIN
 ## Parse Args
