@@ -13,6 +13,7 @@ set -Eeou pipefail
 
 
 ### Global Variables
+BASE_SPY_PATH="$(dirname "$(readlink -f "${0}")")"
 PY_BIN="$(command -v python)"
 SPYGLASS_CFG="${HOME}/printer_data/config/spyglass.conf"
 
@@ -93,6 +94,8 @@ done
 
 check_py_version
 get_config
+
+debug_msg "${BASE_SPY_PATH}"
 
 ### Loop to keep running
 while true; do
