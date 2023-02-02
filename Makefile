@@ -19,11 +19,16 @@ all:
 install: ## Install Spyglass as service
 	@printf "\nCopying systemd service file ...\n"
 	@sudo cp -f "${PWD}/resources/spyglass.service" $(SYSTEMD)
-	@sudo sed -i "s/%USER/$(USER)/g" $(SYSTEMD)/spyglass.service
+	@sudo sed -i "s/%USER%/$(USER)/g" $(SYSTEMD)/spyglass.service
 	@printf "\nCopying spyglass launch script ...\n"
 	@sudo cp -f "${PWD}/scripts/spyglass" $(BIN_PATH)
 	@printf "\nCopying basic configuration file ...\n"
 	@cp -f "${PWD}/resources/spyglass.conf" $(CONF_PATH)
+	@printf "\nPopulate new service file ... \n"
+	@sudo systemctl deamon-reload
+	@printf "\nEnable spyglass service ... \n"
+	@sudo systemctl enable spyglass
+
 
 uninstall: ## Uninstall Spyglass
 	@echo "On ToDo List :)"
