@@ -75,6 +75,14 @@ print_config() {
 
 run_spyglass() {
     local bind_adress
+    # ensure default for NO_PROXY
+    [[ -n "${NO_PROXY}" ]] || NO_PROXY="true"
+
+    if [[ "${NO_PROXY}" != "true" ]]; then
+        bind_adress="127.0.0.1"
+    else
+        bind_adress="0.0.0.0"
+    fi
 
     "${PY_BIN}" "$(dirname "${BASE_SPY_PATH}")/run.py" \
     --bindaddress "${bind_adress}" \
