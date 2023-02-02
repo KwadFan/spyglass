@@ -28,10 +28,18 @@ install: ## Install Spyglass as service
 	@sudo systemctl deamon-reload
 	@printf "\nEnable spyglass service ... \n"
 	@sudo systemctl enable spyglass
-
+	@printf "\nTo be sure, everything is setup please reboot ...\n"
+	@printf "Thanks for choosing spyglass ...\n"
 
 uninstall: ## Uninstall Spyglass
-	@echo "On ToDo List :)"
+	@printf "\nDisable spyglass service ... \n"
+	@sudo systemctl enable spyglass
+	@printf "\nRemove systemd service file ...\n"
+	@sudo rm -f $(SYSTEMD)/spyglass.service
+	@printf "\nRemoving spyglass launch script ...\n"
+	@sudo rm -f $(BIN_PATH)/spyglass
+
+
 
 update: ## Update Spyglass (via git Repository)
 	@git fetch && git pull
