@@ -14,7 +14,7 @@ set -Eeou pipefail
 
 ### Global Variables
 PY_BIN="$(command -v python)"
-SPYGLASS_CFG=""
+SPYGLASS_CFG="${HOME}/printer_data/config/spyglass.conf"
 DEBUG_OUTPUT=0
 
 ### Debugging
