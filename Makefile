@@ -1,5 +1,6 @@
 ## Spyglass Installer
 ##
+## Selfdocumenting Makefile
 ## Based on https://www.freecodecamp.org/news/self-documenting-makefile/
 
 
