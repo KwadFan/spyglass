@@ -63,7 +63,7 @@ print_config() {
     printf "INFO: Print Configfile: '%s'\n" "${SPYGLASS_CFG}"
     (sed '/^#.*/d;/./,$!d' | cut -d'#' -f1) < "${SPYGLASS_CFG}" | \
     while read -r line; do
-        printf "%s\n" "${prefix}${line}"
+        printf "%b%s\n" "${prefix}" "${line}"
     done
 }
 
