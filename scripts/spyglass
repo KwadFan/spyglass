@@ -15,10 +15,9 @@ set -Eeou pipefail
 ### Global Variables
 PY_BIN="$(command -v python)"
 SPYGLASS_CFG="${HOME}/printer_data/config/spyglass.conf"
-DEBUG_OUTPUT=0
 
 ### Debugging
-if [[ "${DEBUG_OUTPUT}" -ne 0 ]]; then
+if [[ "${DEBUG_OUTPUT}" = "1" ]]; then
     set -x
 fi
 
