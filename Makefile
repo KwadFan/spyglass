@@ -5,6 +5,9 @@
 
 .PHONY: help install update
 
+all:
+	$(MAKE) help
+
 install: ## Install Spyglass as service
 	@echo "On ToDo List :)"
 
